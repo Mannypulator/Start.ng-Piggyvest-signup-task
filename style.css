@@ -118,7 +118,7 @@ p {
     font-size: 0.875rem;
     color: rgb(74, 85, 104);
     text-align: center;
-    font-family: Karla,sans-serif;
+    font-family: karl,sans-serif;
     margin-block-start: 1em;
     margin-block-end: 1em;
     margin-inline-start: 0px;
@@ -173,6 +173,7 @@ input {
 
 }
 .select-outer-wrapper{
+    position: relative;
     color: red;
     padding: 0.5rem;
     background: rgb(237, 242, 247);
@@ -181,6 +182,9 @@ input {
     border-color: initial;
     border-image: initial;
     border-radius: 0.5rem;
+    line-height: inherit;
+    font-family: inherit;
+    font-size: 100%;
     align-items: center;
     cursor: default;
     justify-content: space-around;
@@ -189,8 +193,27 @@ input {
     box-sizing: border-box;
     transition: all 100ms ease 0s;
     outline: 0px !important;
+    height: 3em;
 }
-
+select {
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: rgb(237, 242, 247);
+    line-height: inherit;
+    display: flex;
+    flex-direction: row;
+    
+}
+select::after {
+    content:"\25BC";
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    
+}
 
 .button-container {
     align-items: flex-end;
