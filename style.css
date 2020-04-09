@@ -1,34 +1,73 @@
 *,
-::after,
-::before {
+:after,
+:before {
     border-width: 0px;
     border-style: solid;
     border-color: rgb(226, 232, 240);
     border-image: initial;
     box-sizing: inherit;
+    border: 0 solid #e2e8f0;
 }
 html {
     font-family: -apple-system, BlinkMacSystemFont, "segoe ui", Roboto, "helvetica neue", Arial, "noto sans", sans-serif, "apple color emoji", "segoe ui emoji", "segoe ui symbol", "noto color emoji";
     line-height: 1.5;
     box-sizing: border-box;
-    background: #add8e6;
-    text-size-adjust: 100%;
+    background-color: rgb(6, 40, 99);
+
+}
+body {
+    margin: 0;
 }
 main{
     overflow-y: hidden;
-    display: flex;
-    flex-direction: column;
     height: 100vh;
+}
+/* common classes */
+
+.flex{
+    display: flex;
+}
+.flex-col {
+    flex-direction: column;
+}
+.flex-row {
+    flex-direction: row;
+}
+.flex-wrap {
+    flex-wrap: wrap;
+}
+.relative {
+    position: relative;
+}
+.block {
+    display: block;
+}
+
+.center {
+    align-items: center;
 }
 .container {
     padding-top: 3rem;
     padding-bottom: 3rem;
-    overflow: auto;
     min-height: 100vh;
-    align-items: center;
-    flex-direction: column;
-    display: flex;
     background-color: rgb(6, 40, 99);
+    background-image: url("./img/1.png"),
+    url("./img/2.png"),
+    url("./img/3.png"),
+    url("./img/4.png");
+    background-size: 15%,15%,15%,15%;
+    background-position: left -1% top -15%,
+    right -7.5% top -1%,
+    left -5% bottom -10%,
+    right -5% bottom -5%;
+    background-repeat: no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat;
+}
+.over-flow {
+    overflow: auto;
+    overflow-anchor: hidden;
 }
 a {
     color: inherit;
@@ -40,7 +79,7 @@ img {
     max-width: 100%;
     height: auto;
     border: 0;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     display: block;
     border-style: solid;
     color: inherit;
@@ -63,9 +102,6 @@ img {
 }
 header {
     margin-bottom: 1.5rem;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
 }
 h1{
     font-size: 1.25em;
@@ -73,8 +109,6 @@ h1{
     text-align: center;
     font-weight: 700;
     font-family: U8,sans-serif;
-    margin: 0px;
-    display: block;
     margin-block-start: 0.67em;
     margin-block-end: 0.67em;
     margin-inline-start: 0px;
@@ -84,29 +118,25 @@ p {
     font-size: 0.875rem;
     color: rgb(74, 85, 104);
     text-align: center;
-    font-family: Karla,
-    sans-serif;
-    margin: 0px;
-    display: block;
+    font-family: Karla,sans-serif;
     margin-block-start: 1em;
     margin-block-end: 1em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
+}
+h1, p, img {
+    margin: 0;
 }
 form {
     overflow-y: auto;
     min-height: min-content;
     margin-top: 2rem;
     margin-bottom: 0px;
-    display: flex;
     flex: 1 1 0%;
-    flex-direction: column;
 }
 .input-container {
     position: relative;
     margin-bottom: 2rem;
-    display: flex;
-    flex-direction: column;
 }
 label {
     font-size: 0.75rem;
@@ -114,8 +144,7 @@ label {
     margin-bottom: 0.25rem;
     line-height: 2;
     font-weight: 700;
-    font-family: U8,
-    sans-serif;
+    font-family: U8,sans-serif;
     cursor: default;
 }
 input {
@@ -131,10 +160,6 @@ input {
     font-family: inherit;
     font-size: 100%;
     margin: 0px;
-    /* text-rendering: auto;
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-transform: none; */
 }
 .input-container-item {
     position: relative;
@@ -158,8 +183,6 @@ input {
     border-radius: 0.5rem;
     align-items: center;
     cursor: default;
-    display: flex;
-    flex-wrap: wrap;
     justify-content: space-around;
     min-height: 38px;
     position: relative;
@@ -167,86 +190,9 @@ input {
     transition: all 100ms ease 0s;
     outline: 0px !important;
 }
-.select-inner-wrapper {
-    padding: 0px;
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    position: relative;
-    box-sizing: border-box;
-    flex:1 1 0%;
-    overflow: hidden;
-    color: red;
-    cursor: default;
-}
-.select-inner-wrapper:nth-child(1) {
-    color: rgb(26, 32, 44);
-    margin-left: 2px;
-    margin-right: 2px;
-    max-width: calc(100% - 8px);
-    position: absolute;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    top: 50%;
-    transform: translateY(-50%);
-    box-sizing: border-box;
-    overflow: hidden;
-    cursor: default;
-}
-.select-inner-wrapper:nth-child(2) {
-    padding-bottom: 2px;
-    padding-top: 2px;
-    visibility: visible;
-    color: rgb(51, 51, 51);
-    box-sizing: border-box;
-    margin: 2px;
-    cursor: default;
-}
-.select-inner-wrapper:nth-child(2) div {
-    color: rgb(26, 32, 44);
-    visibility: visible;
-    cursor: default;
-}
-.select-indicator {
-    align-items: center;
-    align-self: stretch;
-    display: flex;
-    flex-shrink: 0;
-    box-sizing: border-box;
-    color: red;
-    cursor: default;
-}
-.select-indicator-separator {
-    align-self: stretch;
-    background-color: rgb(204, 204, 204);
-    margin-bottom: 8px;
-    margin-top: 8px;
-    width: 1px;
-    box-sizing: border-box;
-}
-.select-dropdown-indicator {
-    padding: 8px;
-}
-.indicator-container {
-    color: rgb(204, 204, 204);
-    display: flex;
-    flex-direction: row;
-    box-sizing: border-box;
-    transition: color 150ms ease 0s;
-}
-.indicator {
-    display: inline-block;
-    fill: currentcolor;
-    line-height: 1;
-    stroke: currentcolor;
-    stroke-width: 0;
-    color: rgb(204, 204, 204);
-}
-svg {
-    vertical-align: middle
-}
+
+
 .button-container {
-    display: flex;
     align-items: flex-end;
     flex: 1 1 0%;
 }
@@ -264,18 +210,13 @@ svg {
     padding-bottom: 1rem;
     margin-top: 0px;
     font-weight: 700;
-    font-family: U8,
-    sans-serif;
+    font-family: U8,sans-serif;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    display: flex;
     border-bottom-right-radius: 0.75rem;
     border-top-left-radius: 0.75rem;
     border-top-right-radius: 0.75rem;
     line-height: inherit;
     cursor: pointer;
-    /* background: 0px 0px; */
     overflow: visible;
     box-sizing: inherit;
 }
@@ -291,11 +232,7 @@ svg {
     padding-bottom: 0.25rem;
     margin-top: 2rem;
     font-weight: 400;
-    font-family: Karla,
-    sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    font-family: Karla,sans-serif;
     justify-content: center;
     border-bottom-right-radius: 0.75rem;
     border-top-left-radius: 0.75rem;
